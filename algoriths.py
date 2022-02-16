@@ -48,6 +48,12 @@ class MaxHeap:
             self.__swap(index, parent)
             self.__floatUp(parent)
 
+    def bubbleDown(self, index):
+        left = index * 2
+        right = index * 2 + 1
+        largest = index
+        if len(self.heap) > left and self.heap[largest] < self.heap[left]:
+
 
 if __name__ == '__main__':
     print("Begin test")
