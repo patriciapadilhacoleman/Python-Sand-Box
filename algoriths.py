@@ -8,9 +8,6 @@
     """
 
 
-from importlib.util import set_loader
-
-
 class MaxHeap:
     def __init__(self, items=[]):
         super().__init__()
@@ -35,13 +32,21 @@ class MaxHeap:
             max = self.heap.pop()
             self.__bubbleDown(1)
         elif len(self.heap) == 2:
-            max = self.healp.pop()
+            max = self.heap.pop()
         else:
             max = False
         return max
 
     def __swap(self, i, j):
         self.heap[i], self.healp[j] = self.heap[j], self.heap[i]
+
+    def __floatUp(self, index):
+        parent = index//2
+        if index <= 1:
+            return
+        elif self.heap[index] > self.heap[parent]:
+            self.__swap(index, parent)
+            self.__floatUp(parent)
 
 
 if __name__ == '__main__':
