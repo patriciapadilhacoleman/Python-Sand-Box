@@ -18,7 +18,7 @@ class MaxHeap:
 
     def push(self, data):
         self.heap.append(data)
-        self.floatUp(len(self.heap)-1)
+        self.__floatUp(len(self.heap)-1)
 
     def peek(self):
         if self.heap[1]:
@@ -38,7 +38,7 @@ class MaxHeap:
         return max
 
     def __swap(self, i, j):
-        self.heap[i], self.healp[j] = self.heap[j], self.heap[i]
+        self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
 
     def __floatUp(self, index):
         parent = index//2
@@ -48,12 +48,26 @@ class MaxHeap:
             self.__swap(index, parent)
             self.__floatUp(parent)
 
-    def bubbleDown(self, index):
+    def __bubbleDown(self, index):
         left = index * 2
         right = index * 2 + 1
         largest = index
         if len(self.heap) > left and self.heap[largest] < self.heap[left]:
+            largest = left
+        if len(self.heap) > right and self.heap[largest] < self.heap[right]:
+            largest = right
+        if largest != index:
+            self.__swap(index, largest)
+            self.__bubbleDown(largest)
+
+        def __str__(self):
+            return str(self.heap)
 
 
 if __name__ == '__main__':
     print("Begin test")
+    m = MaxHeap([95, 3, 21, 5, 7])
+    m.push(10)
+    print(m)
+    print(m.pop())
+    print(m.peek())
