@@ -1,5 +1,7 @@
-"""This is a Max heap and it always bubbles up
-    the highest value to the top
+    
+"""
+        This is a Max heap and it always bubbles up
+        the highest value to the top
         public functions:pop,peek, push
         private functions: swap, __floatUp, __bubbleDown, __str.
 
@@ -9,14 +11,14 @@
 
 
 class MaxHeap:
-    def __init__(self, items=[]):
+        def __init__(self, items=[]):
         super().__init__()
         self.heap = [0]
         for item in items:
             self.heap.append(item)
             self.__floatUp(len(self.heap) - 1)
 
-    def push(self, data):
+        def push(self, data):
         self.heap.append(data)
         self.__floatUp(len(self.heap)-1)
 

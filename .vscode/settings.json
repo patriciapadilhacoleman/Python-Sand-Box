@@ -1,5 +1,9 @@
 {
-    "python.linting.mypyEnabled": false,
-    "python.linting.pylamaEnabled": true,
-    "python.linting.enabled": true
+  "python.linting.mypyEnabled": false,
+  "python.linting.pylamaEnabled": true,
+  "python.linting.enabled": true,
+  "files.associations": {
+    "iostream": "cpp",
+    "iosfwd": "cpp"
+  }
 }
